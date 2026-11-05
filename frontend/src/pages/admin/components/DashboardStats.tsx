@@ -1,5 +1,5 @@
 import { useMusicStore } from "@/stores/useMusicStore";
-import { Library, ListMusic, PlayCircle, Users2 } from "lucide-react";
+import { Disc, ListMusic, Users, Radio } from "lucide-react";
 import StatsCard from "./StatsCard";
 
 const DashboardStats = () => {
@@ -8,36 +8,40 @@ const DashboardStats = () => {
 	const statsData = [
 		{
 			icon: ListMusic,
-			label: "Total Songs",
+			label: "Aurora Tracks",
 			value: stats.totalSongs.toString(),
-			bgColor: "bg-emerald-500/10",
-			iconColor: "text-emerald-500",
+			bgColor: "bg-[#9B5CFF]/15",
+			iconColor: "text-[#9B5CFF]",
+			borderColor: "border-[#9B5CFF]/30",
 		},
 		{
-			icon: Library,
-			label: "Total Albums",
+			icon: Disc,
+			label: "Master Albums",
 			value: stats.totalAlbums.toString(),
-			bgColor: "bg-violet-500/10",
-			iconColor: "text-violet-500",
+			bgColor: "bg-[#32D9FF]/15",
+			iconColor: "text-[#32D9FF]",
+			borderColor: "border-[#32D9FF]/30",
 		},
 		{
-			icon: Users2,
-			label: "Total Artists",
+			icon: Users,
+			label: "Featured Artists",
 			value: stats.totalArtists.toString(),
-			bgColor: "bg-orange-500/10",
-			iconColor: "text-orange-500",
+			bgColor: "bg-[#FF5CA8]/15",
+			iconColor: "text-[#FF5CA8]",
+			borderColor: "border-[#FF5CA8]/30",
 		},
 		{
-			icon: PlayCircle,
-			label: "Total Users",
+			icon: Radio,
+			label: "Cosmic Listeners",
 			value: stats.totalUsers.toLocaleString(),
-			bgColor: "bg-sky-500/10",
-			iconColor: "text-sky-500",
+			bgColor: "bg-indigo-500/15",
+			iconColor: "text-indigo-400",
+			borderColor: "border-indigo-500/30",
 		},
 	];
 
 	return (
-		<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8 '>
+		<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8 select-none'>
 			{statsData.map((stat) => (
 				<StatsCard
 					key={stat.label}
@@ -46,6 +50,7 @@ const DashboardStats = () => {
 					value={stat.value}
 					bgColor={stat.bgColor}
 					iconColor={stat.iconColor}
+					borderColor={stat.borderColor}
 				/>
 			))}
 		</div>

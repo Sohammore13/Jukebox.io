@@ -1,13 +1,13 @@
 const SectionGridSkeleton = () => {
 	return (
-		<div className='mb-8'>
-			<div className='h-8 w-48 bg-zinc-800 rounded mb-4 animate-pulse' />
-			<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4'>
+		<div className='mb-10'>
+			<div className='h-6 w-48 bg-[#18203B]/60 rounded-full mb-5 animate-pulse' />
+			<div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
 				{Array.from({ length: 4 }).map((_, i) => (
-					<div key={i} className='bg-zinc-800/40 p-4 rounded-md animate-pulse'>
-						<div className='aspect-square rounded-md bg-zinc-700 mb-4' />
-						<div className='h-4 bg-zinc-700 rounded w-3/4 mb-2' />
-						<div className='h-4 bg-zinc-700 rounded w-1/2' />
+					<div key={i} className='glass-panel border border-white/5 p-3.5 rounded-2xl animate-pulse flex flex-col'>
+						<div className='aspect-square rounded-xl bg-[#18203B]/70 mb-3.5' />
+						<div className='h-3.5 bg-[#18203B]/80 rounded-full w-3/4 mb-2' />
+						<div className='h-2.5 bg-[#18203B]/50 rounded-full w-1/2' />
 					</div>
 				))}
 			</div>
