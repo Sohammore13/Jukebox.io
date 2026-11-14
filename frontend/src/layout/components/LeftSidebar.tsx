@@ -96,7 +96,7 @@ const LeftSidebar = () => {
 								/>
 								<span className='absolute -top-0.5 -right-0.5 size-2 rounded-full bg-[#32D9FF] animate-pulse' />
 							</div>
-							<span className='hidden md:inline'>Aurora Chat</span>
+							<span className='hidden md:inline'>Jukebox Chat</span>
 						</Link>
 					</SignedIn>
 				</nav>
@@ -115,7 +115,7 @@ const LeftSidebar = () => {
 
 					<button
 						title='Create Playlist'
-						onClick={() => alert("Playlist created in your Aurora library! ✨")}
+						onClick={() => alert("Playlist created in your Jukebox library! ✨")}
 						className='hidden md:flex items-center gap-1 text-xs text-[#32D9FF] hover:text-white hover:bg-[#32D9FF]/10 px-2 py-1 rounded-lg border border-[#32D9FF]/20 transition-all duration-200 group'
 					>
 						<PlusCircle className='size-3.5 group-hover:rotate-90 transition-transform duration-300' />

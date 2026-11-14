@@ -11,7 +11,7 @@ const SongsTabContent = () => {
 					<div>
 						<CardTitle className='flex items-center gap-2 text-white'>
 							<Music className='size-5 text-[#32D9FF]' />
-							Aurora Tracks Catalog
+							Jukebox Tracks Catalog
 						</CardTitle>
 						<CardDescription className='text-[#94A3B8] text-xs'>
 							Manage audio streams, durations and metadata

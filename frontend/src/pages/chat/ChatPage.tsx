@@ -113,7 +113,7 @@ const NoConversationPlaceholder = () => (
 		</div>
 
 		<div className='space-y-1.5 max-w-sm'>
-			<h3 className='text-lg font-bold text-white'>No Active Aurora Frequency</h3>
+			<h3 className='text-lg font-bold text-white'>No Active Jukebox Frequency</h3>
 			<p className='text-xs text-[#94A3B8] leading-relaxed'>
 				Choose a friend from the transmission list on the left to start sharing beats and messages in real-time.
 			</p>

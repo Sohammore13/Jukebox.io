@@ -49,10 +49,10 @@ export const MidnightAuroraLogo: React.FC<LogoProps> = ({
 			{showText && (
 				<div className='flex flex-col min-w-0'>
 					<span className={`font-bold tracking-tight text-white leading-none ${textSize}`}>
-						Midnight <span className='text-transparent bg-clip-text bg-gradient-to-r from-[#9B5CFF] via-[#32D9FF] to-[#FF5CA8]'>Aurora</span>
+						Jukebox<span className='text-transparent bg-clip-text bg-gradient-to-r from-[#9B5CFF] via-[#32D9FF] to-[#FF5CA8]'>.io</span>
 					</span>
 					<span className='text-[10px] tracking-widest uppercase font-semibold text-[#32D9FF]/80 mt-0.5'>
-						Next-Gen Audio
+						Realtime Streaming
 					</span>
 				</div>
 			)}

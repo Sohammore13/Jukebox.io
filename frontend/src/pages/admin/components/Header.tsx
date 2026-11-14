@@ -17,7 +17,7 @@ const Header = () => {
 
 				<div className='hidden sm:block border-l border-white/10 pl-5'>
 					<div className='flex items-center gap-2'>
-						<h1 className='text-2xl font-black text-white tracking-tight'>Aurora Control Matrix</h1>
+						<h1 className='text-2xl font-black text-white tracking-tight'>Jukebox Control Matrix</h1>
 						<span className='px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-[#9B5CFF]/20 text-[#32D9FF] border border-[#32D9FF]/30'>
 							Admin Studio
 						</span>
