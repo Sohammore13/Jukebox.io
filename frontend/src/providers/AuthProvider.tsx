@@ -2,7 +2,6 @@ import { axiosInstance } from "@/lib/axios";
 import { useAuthStore } from "@/stores/useAuthStore";
 import { useChatStore } from "@/stores/useChatStore";
 import { useAuth } from "@clerk/clerk-react";
-import { Loader } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const updateApiToken = (token: string | null) => {
@@ -42,8 +41,14 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
 	if (loading)
 		return (
-			<div className='h-screen w-full flex items-center justify-center'>
-				<Loader className='size-8 text-emerald-500 animate-spin' />
+			<div className='h-screen w-full flex flex-col items-center justify-center bg-[#080B16] gap-4 select-none'>
+				<div className='relative size-12 flex items-center justify-center'>
+					<div className='absolute inset-0 rounded-full border-2 border-t-[#9B5CFF] border-r-[#32D9FF] border-b-transparent border-l-transparent animate-spin' />
+					<div className='size-2 rounded-full bg-[#32D9FF] shadow-[0_0_10px_#32D9FF]' />
+				</div>
+				<p className='text-xs font-semibold uppercase tracking-widest text-[#32D9FF]'>
+					Initializing Midnight Aurora...
+				</p>
 			</div>
 		);
 

@@ -91,9 +91,9 @@ const AddSongDialog = () => {
 	return (
 		<Dialog open={songDialogOpen} onOpenChange={setSongDialogOpen}>
 			<DialogTrigger asChild>
-				<Button className='bg-emerald-500 hover:bg-emerald-600 text-black'>
+				<Button className='bg-gradient-to-r from-[#9B5CFF] to-[#32D9FF] text-white font-bold hover:opacity-90 shadow-[0_0_15px_rgba(155,92,255,0.4)]'>
 					<Plus className='mr-2 h-4 w-4' />
-					Add Song
+					Add Aurora Track
 				</Button>
 			</DialogTrigger>
 
