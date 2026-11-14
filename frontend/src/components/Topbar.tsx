@@ -54,7 +54,7 @@ const Topbar = () => {
 								{user.firstName || user.username || "Listener"}
 							</span>
 							<span className='text-[10px] text-[#32D9FF] font-medium'>
-								Aurora VIP
+								Jukebox VIP
 							</span>
 						</div>
 						<div className='p-0.5 rounded-full ring-2 ring-[#9B5CFF]/50 shadow-[0_0_12px_rgba(155,92,255,0.4)]'>

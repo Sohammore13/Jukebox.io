@@ -47,7 +47,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 					<div className='size-2 rounded-full bg-[#32D9FF] shadow-[0_0_10px_#32D9FF]' />
 				</div>
 				<p className='text-xs font-semibold uppercase tracking-widest text-[#32D9FF]'>
-					Initializing Midnight Aurora...
+					Initializing Jukebox.io...
 				</p>
 			</div>
 		);

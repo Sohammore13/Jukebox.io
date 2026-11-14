@@ -28,13 +28,13 @@ const AdminPage = () => {
 					</div>
 					<h2 className='text-2xl font-bold text-white'>Access Restricted</h2>
 					<p className='text-xs text-[#94A3B8] leading-relaxed'>
-						Only authorized Aurora Studio Administrators are permitted inside this frequency.
+						Only authorized Jukebox Studio Administrators are permitted inside this section.
 					</p>
 					<Link
 						to='/'
 						className='inline-block px-6 py-2.5 rounded-full bg-gradient-to-r from-[#9B5CFF] to-[#32D9FF] text-white font-bold text-xs shadow-lg'
 					>
-						Return to Aurora Home
+						Return to Jukebox Home
 					</Link>
 				</div>
 			</div>

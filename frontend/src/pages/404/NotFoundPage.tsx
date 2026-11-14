@@ -21,9 +21,9 @@ export default function NotFoundPage() {
 					<h1 className='text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#9B5CFF] via-[#32D9FF] to-[#FF5CA8] tracking-tight'>
 						404
 					</h1>
-					<h2 className='text-xl font-bold text-white'>Signal Lost in the Aurora</h2>
+					<h2 className='text-xl font-bold text-white'>Signal Lost in the Jukebox</h2>
 					<p className='text-xs text-[#94A3B8] max-w-sm mx-auto leading-relaxed'>
-						The frequency you are trying to tune into does not exist or has drifted into deep space.
+						The frequency you are trying to tune into does not exist or has drifted away.
 					</p>
 				</div>
 
@@ -34,14 +34,14 @@ export default function NotFoundPage() {
 						className='border-white/10 text-white hover:bg-white/10 rounded-xl text-xs w-full sm:w-auto h-10'
 					>
 						<Compass className='mr-2 size-3.5 text-[#32D9FF]' />
-						Previous Frequency
+						Previous Page
 					</Button>
 					<Button
 						onClick={() => navigate("/")}
 						className='bg-gradient-to-r from-[#9B5CFF] to-[#32D9FF] text-white hover:opacity-90 rounded-xl text-xs font-bold w-full sm:w-auto h-10 shadow-[0_0_20px_rgba(155,92,255,0.4)]'
 					>
 						<Home className='mr-2 size-3.5' />
-						Aurora Dashboard
+						Jukebox Home
 					</Button>
 				</div>
 			</div>

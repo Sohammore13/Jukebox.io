@@ -8,7 +8,7 @@ const DashboardStats = () => {
 	const statsData = [
 		{
 			icon: ListMusic,
-			label: "Aurora Tracks",
+			label: "Jukebox Tracks",
 			value: stats.totalSongs.toString(),
 			bgColor: "bg-[#9B5CFF]/15",
 			iconColor: "text-[#9B5CFF]",

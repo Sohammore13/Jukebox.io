@@ -66,7 +66,7 @@ const AuthPage = () => {
 					<MidnightAuroraLogo size='lg' />
 					<p className='text-xs font-semibold text-[#94A3B8] tracking-widest uppercase mt-1'>
 						{mode === "signin"
-							? "✦ Welcome back to the audio cosmos ✦"
+							? "✦ Welcome back to Jukebox.io ✦"
 							: "✦ Join the next-generation sound stream ✦"}
 					</p>
 				</div>
@@ -133,7 +133,7 @@ const AuthPage = () => {
 						</p>
 					) : (
 						<p>
-							Already have an Aurora account?{" "}
+							Already have a Jukebox account?{" "}
 							<button
 								type='button'
 								onClick={() => setMode("signin")}
@@ -148,7 +148,7 @@ const AuthPage = () => {
 				{/* Trust badge */}
 				<div className='text-center'>
 					<p className='text-[#94A3B8]/40 text-[10px] tracking-widest uppercase'>
-						End-to-End Encrypted Cosmic Audio ✦ Midnight Aurora
+						End-to-End Encrypted Music Streaming ✦ Jukebox.io
 					</p>
 				</div>
 			</div>
