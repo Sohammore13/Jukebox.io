@@ -1,4 +1,5 @@
 import { useMusicStore } from "@/stores/useMusicStore";
+import LikeButton from "@/components/LikeButton";
 import { usePlayerStore } from "@/stores/usePlayerStore";
 import { Play, Pause, Sparkles, Heart, Radio, Disc } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -7,7 +8,7 @@ import { useState } from "react";
 export const HeroBanner = () => {
 	const { albums, featuredSongs } = useMusicStore();
 	const { currentSong, isPlaying, playAlbum, setCurrentSong, togglePlay } = usePlayerStore();
-	const [isLiked, setIsLiked] = useState(false);
+
 
 	// Featured album or fallback to first album / song
 	const featuredAlbum = albums[0] || null;

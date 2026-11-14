@@ -7,3 +7,4 @@ router.get("/", protectRoute, getAllUsers);
 router.get("/messages/:userId", protectRoute, getMessages);
 
 export default router;
+

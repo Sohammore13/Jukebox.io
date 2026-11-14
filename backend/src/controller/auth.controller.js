@@ -9,10 +9,11 @@ export const authCallback = async (req, res, next) => {
 
 		if (!user) {
 			// signup
+			const computedName = `${firstName || ""} ${lastName || ""}`.trim();
 			await User.create({
 				clerkId: id,
-				fullName: `${firstName || ""} ${lastName || ""}`.trim(),
-				imageUrl,
+				fullName: computedName || "Cosmic Listener",
+				imageUrl: imageUrl || "https://api.dicebear.com/7.x/avataaars/svg?seed=aurora",
 			});
 		}
 
