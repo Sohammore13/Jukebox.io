@@ -10,11 +10,13 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { axiosInstance } from "@/lib/axios";
+import { useMusicStore } from "@/stores/useMusicStore";
 import { Plus, Upload } from "lucide-react";
 import { useRef, useState } from "react";
 import toast from "react-hot-toast";
 
 const AddAlbumDialog = () => {
+	const { fetchAlbums, fetchStats } = useMusicStore();
 	const [albumDialogOpen, setAlbumDialogOpen] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 	const fileInputRef = useRef<HTMLInputElement>(null);
@@ -60,6 +62,8 @@ const AddAlbumDialog = () => {
 				releaseYear: new Date().getFullYear(),
 			});
 			setImageFile(null);
+			await fetchAlbums();
+			await fetchStats();
 			setAlbumDialogOpen(false);
 			toast.success("Album created successfully");
 		} catch (error: any) {
@@ -129,7 +133,7 @@ const AddAlbumDialog = () => {
 						<Input
 							type='number'
 							value={newAlbum.releaseYear}
-							onChange={(e) => setNewAlbum({ ...newAlbum, releaseYear: parseInt(e.target.value) })}
+							onChange={(e) => setNewAlbum({ ...newAlbum, releaseYear: parseInt(e.target.value) || new Date().getFullYear() })}
 							className='bg-zinc-800 border-zinc-700'
 							placeholder='Enter release year'
 							min={1900}

@@ -22,14 +22,20 @@ dotenv.config();
 
 const __dirname = path.resolve();
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 const httpServer = createServer(app);
 initializeSocket(httpServer);
 
+const allowedOrigins = [
+	process.env.CLIENT_URL,
+	"http://localhost:5173",
+	"http://localhost:3000",
+].filter(Boolean);
+
 app.use(
 	cors({
-		origin: "http://localhost:3000",
+		origin: allowedOrigins,
 		credentials: true,
 	})
 );
@@ -71,14 +77,19 @@ app.use("/api/albums", albumRoutes);
 app.use("/api/stats", statRoutes);
 
 if (process.env.NODE_ENV === "production") {
-	app.use(express.static(path.join(__dirname, "../frontend/dist")));
+	const frontendDist = fs.existsSync(path.join(__dirname, "frontend", "dist"))
+		? path.join(__dirname, "frontend", "dist")
+		: path.join(__dirname, "../frontend", "dist");
+
+	app.use(express.static(frontendDist));
 	app.get("*", (req, res) => {
-		res.sendFile(path.resolve(__dirname, "../frontend", "dist", "index.html"));
+		res.sendFile(path.resolve(frontendDist, "index.html"));
 	});
 }
 
 // error handler
 app.use((err, req, res, next) => {
+	console.error("Unhandled error:", err);
 	res.status(500).json({ message: process.env.NODE_ENV === "production" ? "Internal server error" : err.message });
 });
 

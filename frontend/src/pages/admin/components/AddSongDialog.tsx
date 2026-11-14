@@ -24,7 +24,7 @@ interface NewSong {
 }
 
 const AddSongDialog = () => {
-	const { albums } = useMusicStore();
+	const { albums, fetchSongs, fetchStats } = useMusicStore();
 	const [songDialogOpen, setSongDialogOpen] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 
@@ -42,6 +42,24 @@ const AddSongDialog = () => {
 
 	const audioInputRef = useRef<HTMLInputElement>(null);
 	const imageInputRef = useRef<HTMLInputElement>(null);
+
+	const handleAudioSelect = (file: File) => {
+		setFiles((prev) => ({ ...prev, audio: file }));
+
+		try {
+			const audio = new Audio();
+			audio.src = URL.createObjectURL(file);
+			audio.onloadedmetadata = () => {
+				const durationSec = Math.round(audio.duration);
+				if (!isNaN(durationSec) && durationSec > 0) {
+					setNewSong((prev) => ({ ...prev, duration: durationSec.toString() }));
+				}
+				URL.revokeObjectURL(audio.src);
+			};
+		} catch (err) {
+			console.warn("Could not calculate audio duration", err);
+		}
+	};
 
 	const handleSubmit = async () => {
 		setIsLoading(true);
@@ -80,6 +98,10 @@ const AddSongDialog = () => {
 				audio: null,
 				image: null,
 			});
+
+			await fetchSongs();
+			await fetchStats();
+			setSongDialogOpen(false);
 			toast.success("Song added successfully");
 		} catch (error: any) {
 			toast.error("Failed to add song: " + error.message);
@@ -109,7 +131,10 @@ const AddSongDialog = () => {
 						accept='audio/*'
 						ref={audioInputRef}
 						hidden
-						onChange={(e) => setFiles((prev) => ({ ...prev, audio: e.target.files![0] }))}
+						onChange={(e) => {
+							const file = e.target.files?.[0];
+							if (file) handleAudioSelect(file);
+						}}
 					/>
 
 					<input

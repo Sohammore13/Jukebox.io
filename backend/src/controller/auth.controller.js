@@ -2,7 +2,12 @@ import { User } from "../models/user.model.js";
 
 export const authCallback = async (req, res, next) => {
 	try {
-		const { id, firstName, lastName, imageUrl } = req.body;
+		const id = req.auth?.userId || req.body.id;
+		const { firstName, lastName, imageUrl } = req.body;
+
+		if (!id) {
+			return res.status(400).json({ message: "User ID is required" });
+		}
 
 		// check if user already exists
 		const user = await User.findOne({ clerkId: id });

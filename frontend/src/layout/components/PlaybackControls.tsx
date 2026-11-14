@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import AnimatedEqualizer from "@/components/AnimatedEqualizer";
+import toast from "react-hot-toast";
 
 const formatTime = (seconds: number) => {
 	if (isNaN(seconds)) return "0:00";
@@ -27,15 +28,24 @@ const formatTime = (seconds: number) => {
 };
 
 export const PlaybackControls = () => {
-	const { currentSong, isPlaying, togglePlay, playNext, playPrevious, queue } = usePlayerStore();
+	const {
+		currentSong,
+		isPlaying,
+		togglePlay,
+		playNext,
+		playPrevious,
+		queue,
+		isShuffle,
+		repeatMode,
+		toggleShuffle,
+		toggleRepeat,
+	} = usePlayerStore();
 
 	const [volume, setVolume] = useState(75);
 	const [prevVolume, setPrevVolume] = useState(75);
 	const [isMuted, setIsMuted] = useState(false);
 	const [currentTime, setCurrentTime] = useState(0);
 	const [duration, setDuration] = useState(0);
-	const [isShuffle, setIsShuffle] = useState(false);
-	const [repeatMode, setRepeatMode] = useState<"off" | "all" | "one">("off");
 	const [isLiked, setIsLiked] = useState(false);
 	const [showQueue, setShowQueue] = useState(false);
 	const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -52,23 +62,11 @@ export const PlaybackControls = () => {
 		audio.addEventListener("timeupdate", updateTime);
 		audio.addEventListener("loadedmetadata", updateDuration);
 
-		const handleEnded = () => {
-			if (repeatMode === "one") {
-				audio.currentTime = 0;
-				audio.play();
-			} else {
-				playNext();
-			}
-		};
-
-		audio.addEventListener("ended", handleEnded);
-
 		return () => {
 			audio.removeEventListener("timeupdate", updateTime);
 			audio.removeEventListener("loadedmetadata", updateDuration);
-			audio.removeEventListener("ended", handleEnded);
 		};
-	}, [currentSong, playNext, repeatMode]);
+	}, [currentSong]);
 
 	const handleSeek = (value: number[]) => {
 		if (audioRef.current) {
@@ -199,8 +197,8 @@ export const PlaybackControls = () => {
 					{/* Control Buttons */}
 					<div className='flex items-center gap-3 sm:gap-5'>
 						<button
-							onClick={() => setIsShuffle(!isShuffle)}
-							title='Shuffle'
+							onClick={toggleShuffle}
+							title={isShuffle ? "Shuffle On" : "Shuffle Off"}
 							className={`p-2 rounded-full transition-all ${
 								isShuffle
 									? "text-[#32D9FF] drop-shadow-[0_0_8px_rgba(50,217,255,0.8)]"
@@ -280,7 +278,7 @@ export const PlaybackControls = () => {
 				{/* 3. Volume & Utility Controls */}
 				<div className='hidden sm:flex items-center gap-3 min-w-[200px] w-[30%] justify-end'>
 					<button
-						onClick={() => alert("Lyrics synchronizer connecting to Aurora lyrics service 🎙️")}
+						onClick={() => toast("Synchronized lyrics are in development", { icon: "🎙️" })}
 						title='Lyrics'
 						className='p-2 rounded-xl text-[#94A3B8] hover:text-white hover:bg-white/5 transition-colors'
 					>
