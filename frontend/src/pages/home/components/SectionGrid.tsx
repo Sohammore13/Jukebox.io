@@ -23,15 +23,15 @@ const SectionGrid = ({ songs, title, subtitle, isLoading }: SectionGridProps) =>
 			{/* Section Header */}
 			<div className='flex items-end justify-between mb-5'>
 				<div>
-					<h2 className='text-xl sm:text-2xl font-extrabold text-white tracking-tight flex items-center gap-2'>
+					<h2 className='text-xl sm:text-2xl font-extrabold text-[var(--text-1)] tracking-tight flex items-center gap-2'>
 						<span>{title}</span>
-						<Sparkles className='size-4 text-[#32D9FF]' />
+						<Sparkles className='size-4 text-[var(--accent-cyan)]' />
 					</h2>
 					{subtitle && (
-						<p className='text-xs text-[#94A3B8] mt-0.5'>{subtitle}</p>
+						<p className='text-xs text-[var(--text-3)] mt-0.5'>{subtitle}</p>
 					)}
 				</div>
-				<button className='text-xs font-semibold text-[#32D9FF] hover:text-white hover:underline transition-colors'>
+				<button className='text-xs font-semibold text-[var(--accent-cyan)] hover:text-[var(--text-1)] hover:underline transition-colors'>
 					Explore All
 				</button>
 			</div>

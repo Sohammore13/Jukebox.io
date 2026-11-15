@@ -53,17 +53,17 @@ export const HeroBanner = () => {
 			<div className='relative z-10 p-6 sm:p-8 md:p-10 flex flex-col md:flex-row items-center md:items-end justify-between gap-8'>
 				{/* Left text column */}
 				<div className='space-y-4 max-w-xl text-center md:text-left'>
-					<div className='inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-[#9B5CFF]/20 to-[#32D9FF]/20 border border-[#32D9FF]/30 text-xs font-semibold text-[#32D9FF] backdrop-blur-md shadow-[0_0_15px_rgba(50,217,255,0.2)]'>
-						<Sparkles className='size-3.5 text-[#32D9FF] animate-pulse' />
+					<div className='inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-[#9B5CFF]/20 to-[#32D9FF]/20 border border-[color-mix(in_srgb,var(--accent-cyan)_35%,transparent)] text-xs font-semibold text-[var(--accent-cyan)] backdrop-blur-md shadow-[0_0_15px_rgba(50,217,255,0.15)]'>
+						<Sparkles className='size-3.5 text-[var(--accent-cyan)] animate-pulse' />
 						<span>AURORA SPOTLIGHT • MASTER QUALITY</span>
 					</div>
 
 					<div className='space-y-2'>
-						<h1 className='text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight'>
+						<h1 className='text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[var(--text-1)] leading-tight'>
 							{displayTitle}
 						</h1>
-						<p className='text-base sm:text-lg text-[#CBD5E1] font-medium flex items-center justify-center md:justify-start gap-2'>
-							<span>By <span className='text-white font-bold'>{displayArtist}</span></span>
+						<p className='text-base sm:text-lg text-[var(--text-2)] font-medium flex items-center justify-center md:justify-start gap-2'>
+							<span>By <span className='text-[var(--text-1)] font-bold'>{displayArtist}</span></span>
 							{featuredAlbum && (
 								<>
 									<span className='size-1 rounded-full bg-[#32D9FF]' />

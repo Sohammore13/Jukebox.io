@@ -55,16 +55,16 @@ const LeftSidebar = () => {
 								className={cn(
 									"group relative flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300",
 									isActive
-										? "text-white bg-gradient-to-r from-[#9B5CFF]/25 to-transparent border-l-2 border-[#9B5CFF] shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_0_20px_rgba(155,92,255,0.2)]"
-										: "text-[#CBD5E1] hover:text-white hover:bg-white/5"
+										? "text-[var(--text-1)] bg-gradient-to-r from-[#9B5CFF]/25 to-transparent border-l-2 border-[var(--accent-purple)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_0_20px_rgba(155,92,255,0.2)]"
+										: "text-[var(--text-2)] hover:text-[var(--text-1)] hover:bg-[var(--overlay-soft)]"
 								)}
 							>
 								<Icon
 									className={cn(
 										"size-5 transition-transform duration-300 group-hover:scale-110",
 										isActive
-											? "text-[#32D9FF] drop-shadow-[0_0_8px_rgba(50,217,255,0.6)]"
-											: "text-[#94A3B8] group-hover:text-[#9B5CFF]"
+											? "text-[var(--accent-cyan)] drop-shadow-[0_0_8px_rgba(15,118,110,0.35)]"
+											: "text-[var(--text-3)] group-hover:text-[var(--accent-purple)]"
 									)}
 								/>
 								<span className='hidden md:inline'>{item.label}</span>
@@ -81,8 +81,8 @@ const LeftSidebar = () => {
 							className={cn(
 								"group relative flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300",
 								location.pathname === "/chat"
-									? "text-white bg-gradient-to-r from-[#9B5CFF]/25 to-transparent border-l-2 border-[#9B5CFF] shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_0_20px_rgba(155,92,255,0.2)]"
-									: "text-[#CBD5E1] hover:text-white hover:bg-white/5"
+									? "text-[var(--text-1)] bg-gradient-to-r from-[#9B5CFF]/25 to-transparent border-l-2 border-[var(--accent-purple)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_0_20px_rgba(155,92,255,0.2)]"
+									: "text-[var(--text-2)] hover:text-[var(--text-1)] hover:bg-[var(--overlay-soft)]"
 							)}
 						>
 							<div className='relative'>
@@ -90,11 +90,11 @@ const LeftSidebar = () => {
 									className={cn(
 										"size-5 transition-transform duration-300 group-hover:scale-110",
 										location.pathname === "/chat"
-											? "text-[#32D9FF] drop-shadow-[0_0_8px_rgba(50,217,255,0.6)]"
-											: "text-[#94A3B8] group-hover:text-[#9B5CFF]"
+											? "text-[var(--accent-cyan)] drop-shadow-[0_0_8px_rgba(15,118,110,0.35)]"
+											: "text-[var(--text-3)] group-hover:text-[var(--accent-purple)]"
 									)}
 								/>
-								<span className='absolute -top-0.5 -right-0.5 size-2 rounded-full bg-[#32D9FF] animate-pulse' />
+								<span className='absolute -top-0.5 -right-0.5 size-2 rounded-full bg-[var(--accent-cyan)] animate-pulse' />
 							</div>
 							<span className='hidden md:inline'>Aurora Chat</span>
 						</Link>
@@ -105,9 +105,9 @@ const LeftSidebar = () => {
 			{/* Library & Playlists Section */}
 			<div className='flex-1 rounded-2xl glass-panel p-4 flex flex-col gap-3 min-h-0 border border-[#9B5CFF]/15 shadow-[0_8px_32px_rgba(0,0,0,0.36)]'>
 				{/* Library Header */}
-				<div className='flex items-center justify-between pb-1 px-1 border-b border-white/5'>
-					<div className='flex items-center gap-2.5 text-sm font-semibold text-white'>
-						<div className='p-1.5 rounded-lg bg-[#9B5CFF]/15 text-[#9B5CFF] border border-[#9B5CFF]/30'>
+				<div className='flex items-center justify-between pb-1 px-1 border-b border-[color-mix(in_srgb,var(--text-1)_10%,transparent)]'>
+					<div className='flex items-center gap-2.5 text-sm font-semibold text-[var(--text-1)]'>
+						<div className='p-1.5 rounded-lg bg-[color-mix(in_srgb,var(--accent-purple)_15%,transparent)] text-[var(--accent-purple)] border border-[color-mix(in_srgb,var(--accent-purple)_30%,transparent)]'>
 							<Library className='size-4' />
 						</div>
 						<span className='hidden md:inline tracking-wide'>Your Library</span>
@@ -116,7 +116,7 @@ const LeftSidebar = () => {
 					<button
 						title='Create Playlist'
 						onClick={() => alert("Playlist created in your Aurora library! ✨")}
-						className='hidden md:flex items-center gap-1 text-xs text-[#32D9FF] hover:text-white hover:bg-[#32D9FF]/10 px-2 py-1 rounded-lg border border-[#32D9FF]/20 transition-all duration-200 group'
+						className='hidden md:flex items-center gap-1 text-xs text-[var(--accent-cyan)] hover:text-[var(--text-1)] hover:bg-[color-mix(in_srgb,var(--accent-cyan)_12%,transparent)] px-2 py-1 rounded-lg border border-[color-mix(in_srgb,var(--accent-cyan)_25%,transparent)] transition-all duration-200 group'
 					>
 						<PlusCircle className='size-3.5 group-hover:rotate-90 transition-transform duration-300' />
 						<span>New</span>

@@ -157,13 +157,13 @@ export const PlaybackControls = () => {
 							</div>
 
 							<div className='flex-1 min-w-0'>
-								<div className='font-bold text-sm text-white truncate hover:text-[#32D9FF] cursor-pointer transition-colors'>
+								<div className='font-bold text-sm text-[var(--text-1)] truncate hover:text-[var(--accent-cyan)] cursor-pointer transition-colors'>
 									{currentSong.title}
 								</div>
-								<div className='text-xs text-[#94A3B8] truncate hover:underline cursor-pointer mt-0.5 flex items-center gap-1.5'>
+								<div className='text-xs text-[var(--text-3)] truncate hover:underline cursor-pointer mt-0.5 flex items-center gap-1.5'>
 									<span>{currentSong.artist}</span>
-									<span className='size-1 rounded-full bg-[#9B5CFF]' />
-									<span className='text-[10px] text-[#32D9FF] font-semibold uppercase'>Lossless</span>
+									<span className='size-1 rounded-full bg-[var(--accent-purple)]' />
+									<span className='text-[10px] text-[var(--accent-cyan)] font-semibold uppercase'>Lossless</span>
 								</div>
 							</div>
 
@@ -171,16 +171,16 @@ export const PlaybackControls = () => {
 								onClick={() => setIsLiked(!isLiked)}
 								className={`size-8 rounded-full flex items-center justify-center transition-colors shrink-0 ${
 									isLiked
-										? "text-[#FF5CA8] drop-shadow-[0_0_8px_rgba(255,92,168,0.7)]"
-										: "text-[#94A3B8] hover:text-white"
+										? "text-[var(--accent-pink)] drop-shadow-[0_0_8px_rgba(190,24,93,0.45)]"
+										: "text-[var(--text-3)] hover:text-[var(--text-1)]"
 								}`}
 							>
 								<Heart className={`size-4 ${isLiked ? "fill-current" : ""}`} />
 							</button>
 						</>
 					) : (
-						<div className='flex items-center gap-3 text-xs text-[#94A3B8]'>
-							<Radio className='size-4 text-[#9B5CFF] animate-pulse' />
+						<div className='flex items-center gap-3 text-xs text-[var(--text-3)]'>
+							<Radio className='size-4 text-[var(--accent-purple)] animate-pulse' />
 							<span>Select an aurora track to stream</span>
 						</div>
 					)}
@@ -195,8 +195,8 @@ export const PlaybackControls = () => {
 							title={isShuffle ? "Shuffle On" : "Shuffle Off"}
 							className={`p-2 rounded-full transition-all ${
 								isShuffle
-									? "text-[#32D9FF] drop-shadow-[0_0_8px_rgba(50,217,255,0.8)]"
-									: "text-[#94A3B8] hover:text-white"
+									? "text-[var(--accent-cyan)] drop-shadow-[0_0_8px_rgba(15,118,110,0.45)]"
+									: "text-[var(--text-3)] hover:text-[var(--text-1)]"
 							}`}
 						>
 							<Shuffle className='size-4' />
@@ -206,7 +206,7 @@ export const PlaybackControls = () => {
 							onClick={playPrevious}
 							disabled={!currentSong}
 							title='Previous'
-							className='p-2 rounded-full text-[#CBD5E1] hover:text-white disabled:opacity-40 hover:scale-110 active:scale-95 transition-all'
+							className='p-2 rounded-full text-[var(--text-2)] hover:text-[var(--text-1)] disabled:opacity-40 hover:scale-110 active:scale-95 transition-all'
 						>
 							<SkipBack className='size-5 fill-current' />
 						</button>
@@ -217,6 +217,7 @@ export const PlaybackControls = () => {
 							disabled={!currentSong}
 							title={isPlaying ? "Pause" : "Play"}
 							className='size-11 sm:size-12 rounded-full bg-gradient-to-r from-[#9B5CFF] via-[#7B42FF] to-[#32D9FF] text-white flex items-center justify-center shadow-[0_0_20px_rgba(155,92,255,0.6)] hover:shadow-[0_0_30px_rgba(50,217,255,0.8)] hover:scale-108 active:scale-95 transition-all duration-300 disabled:opacity-40'
+							style={{ color: "#ffffff" }}
 						>
 							{isPlaying ? (
 								<Pause className='size-5 fill-current' />
@@ -229,7 +230,7 @@ export const PlaybackControls = () => {
 							onClick={playNext}
 							disabled={!currentSong}
 							title='Next'
-							className='p-2 rounded-full text-[#CBD5E1] hover:text-white disabled:opacity-40 hover:scale-110 active:scale-95 transition-all'
+							className='p-2 rounded-full text-[var(--text-2)] hover:text-[var(--text-1)] disabled:opacity-40 hover:scale-110 active:scale-95 transition-all'
 						>
 							<SkipForward className='size-5 fill-current' />
 						</button>
@@ -239,8 +240,8 @@ export const PlaybackControls = () => {
 							title={`Repeat: ${repeatMode}`}
 							className={`p-2 rounded-full transition-all ${
 								repeatMode !== "off"
-									? "text-[#FF5CA8] drop-shadow-[0_0_8px_rgba(255,92,168,0.8)]"
-									: "text-[#94A3B8] hover:text-white"
+									? "text-[var(--accent-pink)] drop-shadow-[0_0_8px_rgba(190,24,93,0.45)]"
+									: "text-[var(--text-3)] hover:text-[var(--text-1)]"
 							}`}
 						>
 							{repeatMode === "one" ? (
@@ -253,7 +254,7 @@ export const PlaybackControls = () => {
 
 					{/* Seekable Progress Bar */}
 					<div className='flex items-center gap-3 w-full'>
-						<span className='text-[11px] font-mono text-[#94A3B8] w-9 text-right'>
+						<span className='text-[11px] font-mono text-[var(--text-3)] w-9 text-right'>
 							{formatTime(currentTime)}
 						</span>
 						<Slider
@@ -263,7 +264,7 @@ export const PlaybackControls = () => {
 							className='w-full hover:cursor-grab active:cursor-grabbing'
 							onValueChange={handleSeek}
 						/>
-						<span className='text-[11px] font-mono text-[#94A3B8] w-9'>
+						<span className='text-[11px] font-mono text-[var(--text-3)] w-9'>
 							{formatTime(duration)}
 						</span>
 					</div>
@@ -274,7 +275,7 @@ export const PlaybackControls = () => {
 					<button
 						onClick={() => toast("Synchronized lyrics are in development", { icon: "🎙️" })}
 						title='Lyrics'
-						className='p-2 rounded-xl text-[#94A3B8] hover:text-white hover:bg-white/5 transition-colors'
+						className='p-2 rounded-xl text-[var(--text-3)] hover:text-[var(--text-1)] hover:bg-[var(--overlay-soft)] transition-colors'
 					>
 						<Mic2 className='size-4' />
 					</button>
@@ -284,26 +285,26 @@ export const PlaybackControls = () => {
 						title='Queue'
 						className={`p-2 rounded-xl transition-colors ${
 							showQueue
-								? "bg-[#9B5CFF]/20 text-[#32D9FF] border border-[#32D9FF]/40 shadow-[0_0_12px_rgba(50,217,255,0.3)]"
-								: "text-[#94A3B8] hover:text-white hover:bg-white/5"
+								? "bg-[color-mix(in_srgb,var(--accent-purple)_16%,transparent)] text-[var(--accent-cyan)] border border-[color-mix(in_srgb,var(--accent-cyan)_40%,transparent)]"
+								: "text-[var(--text-3)] hover:text-[var(--text-1)] hover:bg-[var(--overlay-soft)]"
 						}`}
 					>
 						<ListMusic className='size-4' />
 					</button>
 
 					{/* Volume Slider with Mute */}
-					<div className='flex items-center gap-2 pl-2 border-l border-white/10'>
+					<div className='flex items-center gap-2 pl-2 border-l border-[color-mix(in_srgb,var(--text-1)_12%,transparent)]'>
 						<button
 							onClick={toggleMute}
 							title={isMuted ? "Unmute" : "Mute"}
-							className='text-[#94A3B8] hover:text-white transition-colors'
+							className='text-[var(--text-3)] hover:text-[var(--text-1)] transition-colors'
 						>
 							{isMuted || volume === 0 ? (
-								<VolumeX className='size-4 text-[#FF5CA8]' />
+								<VolumeX className='size-4 text-[var(--accent-pink)]' />
 							) : volume < 50 ? (
 								<Volume1 className='size-4' />
 							) : (
-								<Volume2 className='size-4 text-[#32D9FF]' />
+								<Volume2 className='size-4 text-[var(--accent-cyan)]' />
 							)}
 						</button>
 

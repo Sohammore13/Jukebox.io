@@ -20,8 +20,11 @@ export const MidnightAuroraLogo: React.FC<LogoProps> = ({
 				{/* Background ambient glow */}
 				<div className='absolute inset-0 rounded-xl bg-gradient-to-tr from-[#9B5CFF] via-[#32D9FF] to-[#FF5CA8] blur-[8px] opacity-70 group-hover:opacity-100 transition-opacity duration-500' />
 				
-				{/* Icon container */}
-				<div className='relative w-full h-full rounded-xl bg-[#080B16] border border-[#9B5CFF]/30 flex items-center justify-center p-1.5 shadow-inner'>
+				{/* Icon container — stays deep midnight so the aurora mark always pops */}
+				<div
+					className='relative w-full h-full rounded-xl border border-[#9B5CFF]/40 flex items-center justify-center p-1.5 shadow-inner'
+					style={{ backgroundColor: "#080B16" }}
+				>
 					<svg
 						viewBox='0 0 24 24'
 						fill='none'
@@ -48,10 +51,13 @@ export const MidnightAuroraLogo: React.FC<LogoProps> = ({
 
 			{showText && (
 				<div className='flex flex-col min-w-0'>
-					<span className={`font-bold tracking-tight text-white leading-none ${textSize}`}>
-						Midnight <span className='text-transparent bg-clip-text bg-gradient-to-r from-[#9B5CFF] via-[#32D9FF] to-[#FF5CA8]'>Aurora</span>
+					<span className={`font-bold tracking-tight text-[var(--text-1)] leading-none ${textSize}`}>
+						Midnight{" "}
+						<span className='text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-purple)] via-[var(--accent-cyan)] to-[var(--accent-pink)]'>
+							Aurora
+						</span>
 					</span>
-					<span className='text-[10px] tracking-widest uppercase font-semibold text-[#32D9FF]/80 mt-0.5'>
+					<span className='text-[10px] tracking-widest uppercase font-semibold text-[var(--accent-cyan)] mt-0.5'>
 						Next-Gen Audio
 					</span>
 				</div>

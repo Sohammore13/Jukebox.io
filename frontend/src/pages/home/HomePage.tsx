@@ -62,21 +62,21 @@ const HomePage = () => {
 					{/* Personalized Greeting Header */}
 					<div className='mb-7 flex flex-col sm:flex-row sm:items-end justify-between gap-3'>
 						<div>
-							<div className='inline-flex items-center gap-1.5 text-xs font-semibold text-[#32D9FF] uppercase tracking-wider mb-1'>
-								<Sparkles className='size-3.5 text-[#32D9FF]' />
+							<div className='inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--accent-cyan)] uppercase tracking-wider mb-1'>
+								<Sparkles className='size-3.5 text-[var(--accent-cyan)]' />
 								<span>Aurora Sound Matrix</span>
 							</div>
-							<h1 className='text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white'>
+							<h1 className='text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[var(--text-1)]'>
 								{greeting}
 								{user?.firstName && (
-									<span className='text-transparent bg-clip-text bg-gradient-to-r from-[#9B5CFF] via-[#32D9FF] to-[#FF5CA8]'>
+									<span className='text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-purple)] via-[var(--accent-cyan)] to-[var(--accent-pink)]'>
 										, {user.firstName}
 									</span>
 								)}
 							</h1>
 						</div>
 
-						<div className='text-xs text-[#94A3B8] font-medium hidden sm:block'>
+						<div className='text-xs text-[var(--text-3)] font-medium hidden sm:block'>
 							✨ 320kbps High-Definition Spatial Sound
 						</div>
 					</div>
@@ -87,8 +87,8 @@ const HomePage = () => {
 					{/* 2. Recently Played / Quick Mix Section */}
 					<div className='mb-6'>
 						<div className='flex items-center gap-2 mb-4'>
-							<Clock className='size-4 text-[#9B5CFF]' />
-							<h2 className='text-lg sm:text-xl font-bold text-white'>
+							<Clock className='size-4 text-[var(--accent-purple)]' />
+							<h2 className='text-lg sm:text-xl font-bold text-[var(--text-1)]'>
 								Recently Played & Quick Mix
 							</h2>
 						</div>
