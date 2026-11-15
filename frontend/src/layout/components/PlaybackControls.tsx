@@ -88,14 +88,8 @@ export const PlaybackControls = () => {
 		}
 	};
 
-	const toggleRepeat = () => {
-		if (repeatMode === "off") setRepeatMode("all");
-		else if (repeatMode === "all") setRepeatMode("one");
-		else setRepeatMode("off");
-	};
-
 	return (
-		<footer className='relative h-22 sm:h-24 bg-[#0B0F1F]/90 backdrop-blur-2xl border-t border-[#9B5CFF]/20 px-4 sm:px-6 z-40 select-none shadow-[0_-10px_35px_rgba(155,92,255,0.12)]'>
+		<footer className='relative h-22 sm:h-24 theme-player backdrop-blur-2xl border-t border-[#9B5CFF]/20 px-4 sm:px-6 z-40 select-none shadow-[0_-10px_35px_rgba(155,92,255,0.12)] transition-colors duration-300'>
 			{/* Ambient Top Lighting Line */}
 			<div className='absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#9B5CFF]/50 to-transparent' />
 

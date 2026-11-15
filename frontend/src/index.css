@@ -3,30 +3,46 @@
 @tailwind utilities;
 
 @layer base {
-	:root {
-		--background: 228 47% 6%;      /* #080B16 */
-		--foreground: 255 100% 98%;    /* #F5F3FF */
-		--card: 227 42% 12%;           /* #11162A */
-		--card-foreground: 255 100% 98%;
-		--popover: 227 42% 12%;
-		--popover-foreground: 255 100% 98%;
-		--primary: 263 100% 68%;        /* #9B5CFF Electric Purple */
-		--primary-foreground: 255 100% 98%;
-		--secondary: 228 35% 16%;
-		--secondary-foreground: 255 100% 98%;
-		--muted: 228 30% 18%;
-		--muted-foreground: 230 15% 65%;
-		--accent: 191 100% 60%;         /* #32D9FF Neon Cyan */
-		--accent-foreground: 228 47% 6%;
-		--destructive: 332 100% 68%;    /* #FF5CA8 Highlight Pink */
+	:root,
+	html.light {
+		--background: 230 28% 96%;      /* cool aurora mist */
+		--foreground: 228 40% 12%;
+		--card: 0 0% 100%;
+		--card-foreground: 228 40% 12%;
+		--popover: 0 0% 100%;
+		--popover-foreground: 228 40% 12%;
+		--primary: 263 100% 58%;        /* Electric Purple */
+		--primary-foreground: 0 0% 100%;
+		--secondary: 230 25% 92%;
+		--secondary-foreground: 228 40% 12%;
+		--muted: 230 20% 92%;
+		--muted-foreground: 228 15% 40%;
+		--accent: 191 100% 42%;         /* Neon Cyan */
+		--accent-foreground: 0 0% 100%;
+		--destructive: 332 90% 55%;
 		--destructive-foreground: 0 0% 100%;
-		--border: 228 25% 18%;
-		--input: 228 25% 18%;
-		--ring: 263 100% 68%;
+		--border: 230 20% 86%;
+		--input: 230 20% 86%;
+		--ring: 263 100% 58%;
 		--radius: 0.75rem;
+
+		--surface-0: #f3f4fa;
+		--surface-1: #ffffff;
+		--surface-2: #e8eaf3;
+		--text-1: #0f172a;
+		--text-2: #334155;
+		--text-3: #64748b;
+		--glass-bg: rgba(255, 255, 255, 0.72);
+		--glass-bg-hover: rgba(255, 255, 255, 0.9);
+		--glass-border: rgba(155, 92, 255, 0.18);
+		--glass-border-hover: rgba(155, 92, 255, 0.35);
+		--glass-shadow: rgba(15, 23, 42, 0.08);
+		--player-bg: rgba(255, 255, 255, 0.88);
+		--scrollbar-thumb: rgba(155, 92, 255, 0.28);
+		--scrollbar-thumb-hover: rgba(155, 92, 255, 0.5);
 	}
 
-	.dark {
+	html.dark {
 		--background: 228 47% 6%;      /* #080B16 */
 		--foreground: 255 100% 98%;    /* #F5F3FF */
 		--card: 227 42% 12%;           /* #11162A */
@@ -46,6 +62,21 @@
 		--border: 228 25% 20%;
 		--input: 228 25% 20%;
 		--ring: 263 100% 68%;
+
+		--surface-0: #080b16;
+		--surface-1: #11162a;
+		--surface-2: #161d36;
+		--text-1: #f5f3ff;
+		--text-2: #cbd5e1;
+		--text-3: #94a3b8;
+		--glass-bg: rgba(17, 22, 42, 0.65);
+		--glass-bg-hover: rgba(24, 32, 59, 0.75);
+		--glass-border: rgba(155, 92, 255, 0.12);
+		--glass-border-hover: rgba(155, 92, 255, 0.3);
+		--glass-shadow: rgba(155, 92, 255, 0.2);
+		--player-bg: rgba(11, 15, 31, 0.9);
+		--scrollbar-thumb: rgba(155, 92, 255, 0.2);
+		--scrollbar-thumb-hover: rgba(155, 92, 255, 0.45);
 	}
 }
 
@@ -54,7 +85,9 @@
 		@apply border-border;
 	}
 	body {
-		@apply bg-[#080B16] text-[#F5F3FF] font-sans antialiased overflow-hidden;
+		background-color: var(--surface-0);
+		color: var(--text-1);
+		@apply font-sans antialiased overflow-hidden transition-colors duration-300;
 	}
 }
 
@@ -67,28 +100,28 @@
 	background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-	background: rgba(155, 92, 255, 0.2);
+	background: var(--scrollbar-thumb);
 	border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-	background: rgba(155, 92, 255, 0.45);
+	background: var(--scrollbar-thumb-hover);
 }
 
 /* Glassmorphism utilities */
 .glass-panel {
-	background: rgba(17, 22, 42, 0.65);
+	background: var(--glass-bg);
 	backdrop-filter: blur(20px);
 	-webkit-backdrop-filter: blur(20px);
-	border: 1px solid rgba(155, 92, 255, 0.12);
+	border: 1px solid var(--glass-border);
 }
 
 .glass-panel-hover {
 	transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .glass-panel-hover:hover {
-	background: rgba(24, 32, 59, 0.75);
-	border-color: rgba(155, 92, 255, 0.3);
-	box-shadow: 0 10px 30px -10px rgba(155, 92, 255, 0.2);
+	background: var(--glass-bg-hover);
+	border-color: var(--glass-border-hover);
+	box-shadow: 0 10px 30px -10px var(--glass-shadow);
 }
 
 .aurora-glow {
@@ -100,16 +133,71 @@
 }
 
 .aurora-text-gradient {
-	background: linear-gradient(135deg, #F5F3FF 30%, #9B5CFF 70%, #32D9FF 100%);
+	background: linear-gradient(135deg, var(--text-1) 30%, #9b5cff 70%, #32d9ff 100%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
 .aurora-gradient-btn {
-	background: linear-gradient(135deg, #9B5CFF 0%, #32D9FF 100%);
+	background: linear-gradient(135deg, #9b5cff 0%, #32d9ff 100%);
 	transition: all 0.3s ease;
 }
 .aurora-gradient-btn:hover {
-	background: linear-gradient(135deg, #B07AFF 0%, #5BE0FF 100%);
+	background: linear-gradient(135deg, #b07aff 0%, #5be0ff 100%);
 	box-shadow: 0 0 20px rgba(155, 92, 255, 0.5), 0 0 40px rgba(50, 217, 255, 0.3);
+}
+
+.theme-surface {
+	background-color: var(--surface-0);
+	color: var(--text-1);
+}
+
+.theme-player {
+	background: var(--player-bg);
+}
+
+/* Remap hardcoded dark hex utilities when light theme is active */
+html.light .bg-\[\#080B16\],
+html.light .bg-\[\#0B0F1F\] {
+	background-color: var(--surface-0) !important;
+}
+html.light .bg-\[\#080B16\]\/80,
+html.light .bg-\[\#0B0F1F\]\/90 {
+	background-color: color-mix(in srgb, var(--surface-0) 88%, transparent) !important;
+}
+html.light .bg-\[\#11162A\],
+html.light .bg-\[\#161D36\] {
+	background-color: var(--surface-1) !important;
+}
+html.light .bg-\[\#11162A\]\/90 {
+	background-color: color-mix(in srgb, var(--surface-1) 92%, transparent) !important;
+}
+html.light .text-\[\#F5F3FF\] {
+	color: var(--text-1) !important;
+}
+html.light .text-\[\#CBD5E1\] {
+	color: var(--text-2) !important;
+}
+html.light .text-\[\#94A3B8\] {
+	color: var(--text-3) !important;
+}
+html.light .border-white\/5,
+html.light .border-white\/10 {
+	border-color: rgba(15, 23, 42, 0.08) !important;
+}
+html.light .border-white\/30 {
+	border-color: rgba(15, 23, 42, 0.16) !important;
+}
+html.light .hover\:bg-white\/5:hover,
+html.light .hover\:bg-white\/10:hover {
+	background-color: rgba(15, 23, 42, 0.05) !important;
+}
+html.light .hover\:text-white:hover {
+	color: var(--text-1) !important;
+}
+html.light .shadow-\[0_8px_32px_rgba\(0\,0\,0\,0\.36\)\],
+html.light .shadow-\[0_20px_50px_rgba\(0\,0\,0\,0\.5\)\],
+html.light .shadow-\[0_20px_50px_rgba\(0\,0\,0\,0\.8\)\],
+html.light .shadow-\[0_15px_40px_rgba\(0\,0\,0\,0\.8\)\] {
+	box-shadow: 0 16px 40px -20px rgba(15, 23, 42, 0.18) !important;
 }

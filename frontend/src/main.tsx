@@ -5,6 +5,10 @@ import App from "./App.tsx";
 import { ClerkProvider } from "@clerk/clerk-react";
 import { BrowserRouter } from "react-router-dom";
 import AuthProvider from "./providers/AuthProvider.tsx";
+import { useThemeStore } from "./stores/useThemeStore";
+
+// Hydrate persisted theme before first paint of React tree
+useThemeStore.getState();
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 

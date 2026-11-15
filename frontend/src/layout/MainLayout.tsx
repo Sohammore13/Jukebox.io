@@ -20,10 +20,10 @@ const MainLayout = () => {
 	}, []);
 
 	return (
-		<div className='h-screen bg-[#080B16] text-[#F5F3FF] flex flex-col overflow-hidden relative'>
+		<div className='h-screen theme-surface flex flex-col overflow-hidden relative transition-colors duration-300'>
 			{/* Ambient Aurora Gradient Orbs behind entire app */}
-			<div className='fixed -top-40 -left-40 w-96 h-96 bg-[#9B5CFF]/10 rounded-full blur-[120px] pointer-events-none' />
-			<div className='fixed top-1/2 -right-40 w-96 h-96 bg-[#32D9FF]/10 rounded-full blur-[120px] pointer-events-none' />
+			<div className='fixed -top-40 -left-40 w-96 h-96 bg-[#9B5CFF]/15 rounded-full blur-[120px] pointer-events-none' />
+			<div className='fixed top-1/2 -right-40 w-96 h-96 bg-[#32D9FF]/15 rounded-full blur-[120px] pointer-events-none' />
 
 			<ResizablePanelGroup direction='horizontal' className='flex-1 flex h-full overflow-hidden p-2 gap-2'>
 				<AudioPlayer />
