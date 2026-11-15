@@ -2,14 +2,13 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useMusicStore } from "@/stores/useMusicStore";
 import { usePlayerStore } from "@/stores/usePlayerStore";
-import { Clock, Pause, Play, Sparkles, Disc, Share2 } from "lucide-react";
-import { useEffect } from "react";
-import LikeButton from "@/components/LikeButton";
+import { Clock, Pause, Play, Sparkles, Disc, Share2, Heart } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import AnimatedEqualizer from "@/components/AnimatedEqualizer";
 import Topbar from "@/components/Topbar";
 
-const formatDuration = (seconds: number) => {
+export const formatDuration = (seconds: number) => {
 	if (isNaN(seconds)) return "0:00";
 	const minutes = Math.floor(seconds / 60);
 	const remainingSeconds = Math.floor(seconds % 60);
@@ -20,7 +19,7 @@ const AlbumPage = () => {
 	const { albumId } = useParams();
 	const { fetchAlbumById, currentAlbum, isLoading } = useMusicStore();
 	const { currentSong, isPlaying, playAlbum, togglePlay } = usePlayerStore();
-
+	const [isLiked, setIsLiked] = useState(false);
 
 	useEffect(() => {
 		if (albumId) fetchAlbumById(albumId);

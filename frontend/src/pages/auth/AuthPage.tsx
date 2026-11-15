@@ -2,6 +2,7 @@ import { SignIn, SignUp, useAuth } from "@clerk/clerk-react";
 import { useState, useEffect } from "react";
 import { Navigate, useSearchParams } from "react-router-dom";
 import MidnightAuroraLogo from "@/components/MidnightAuroraLogo";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const clerkAppearance = {
 	elements: {
@@ -53,18 +54,22 @@ const AuthPage = () => {
 	}
 
 	return (
-		<div className='min-h-screen w-full bg-[#080B16] flex flex-col items-center justify-center p-4 relative overflow-x-hidden select-none'>
+		<div className='min-h-screen w-full theme-surface flex flex-col items-center justify-center p-4 relative overflow-x-hidden select-none transition-colors duration-300'>
 			{/* Ambient Aurora Gradient Orbs */}
 			<div className='fixed -top-40 -left-40 w-[550px] h-[550px] bg-[#9B5CFF]/15 rounded-full blur-[140px] pointer-events-none animate-pulse' />
 			<div className='fixed -bottom-40 -right-40 w-[550px] h-[550px] bg-[#32D9FF]/15 rounded-full blur-[140px] pointer-events-none animate-pulse' />
 			<div className='fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-[#FF5CA8]/8 rounded-full blur-[120px] pointer-events-none' />
+
+			<div className='absolute top-4 right-4 z-20'>
+				<ThemeToggle />
+			</div>
 
 			{/* Center Container */}
 			<div className='relative z-10 w-full max-w-md flex flex-col items-center gap-5 my-6'>
 				{/* App Brand Header */}
 				<div className='flex flex-col items-center gap-2'>
 					<MidnightAuroraLogo size='lg' />
-					<p className='text-xs font-semibold text-[#94A3B8] tracking-widest uppercase mt-1'>
+					<p className='text-xs font-semibold text-[var(--text-3)] tracking-widest uppercase mt-1'>
 						{mode === "signin"
 							? "✦ Welcome back to the audio cosmos ✦"
 							: "✦ Join the next-generation sound stream ✦"}
@@ -72,14 +77,14 @@ const AuthPage = () => {
 				</div>
 
 				{/* Mode Switcher Tabs */}
-				<div className='flex w-full bg-[#11162A]/90 p-1.5 rounded-2xl border border-[#9B5CFF]/25 shadow-[0_0_20px_rgba(155,92,255,0.15)]'>
+				<div className='flex w-full glass-panel p-1.5 rounded-2xl border border-[#9B5CFF]/25 shadow-[0_0_20px_rgba(155,92,255,0.15)]'>
 					<button
 						type='button'
 						onClick={() => setMode("signin")}
 						className={`flex-1 py-2.5 text-xs font-bold uppercase tracking-wider rounded-xl transition-all duration-300 ${
 							mode === "signin"
 								? "bg-gradient-to-r from-[#9B5CFF] to-[#32D9FF] text-[#080B16] shadow-[0_0_20px_rgba(155,92,255,0.5)] scale-[1.02]"
-								: "text-[#94A3B8] hover:text-white"
+								: "text-[var(--text-3)] hover:text-[var(--text-1)]"
 						}`}
 					>
 						Sign In
@@ -90,7 +95,7 @@ const AuthPage = () => {
 						className={`flex-1 py-2.5 text-xs font-bold uppercase tracking-wider rounded-xl transition-all duration-300 ${
 							mode === "signup"
 								? "bg-gradient-to-r from-[#9B5CFF] to-[#32D9FF] text-[#080B16] shadow-[0_0_20px_rgba(155,92,255,0.5)] scale-[1.02]"
-								: "text-[#94A3B8] hover:text-white"
+								: "text-[var(--text-3)] hover:text-[var(--text-1)]"
 						}`}
 					>
 						Sign Up
