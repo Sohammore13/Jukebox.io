@@ -102,9 +102,10 @@
 	}
 }
 
+/* ─── Custom Scrollbar ─── */
 ::-webkit-scrollbar {
-	width: 6px;
-	height: 6px;
+	width: 5px;
+	height: 5px;
 }
 ::-webkit-scrollbar-track {
 	background: transparent;
@@ -117,6 +118,7 @@
 	background: var(--scrollbar-thumb-hover);
 }
 
+/* ─── Glass Panel ─── */
 .glass-panel {
 	background: var(--glass-bg);
 	backdrop-filter: blur(20px);
@@ -133,20 +135,25 @@
 	box-shadow: 0 10px 30px -10px var(--glass-shadow);
 }
 
+/* ─── Aurora Glows ─── */
 .aurora-glow {
 	box-shadow: 0 0 25px -5px rgba(155, 92, 255, 0.35);
 }
-
 .aurora-cyan-glow {
 	box-shadow: 0 0 25px -5px rgba(50, 217, 255, 0.35);
 }
+.aurora-pink-glow {
+	box-shadow: 0 0 25px -5px rgba(255, 92, 168, 0.35);
+}
 
+/* ─── Text Gradient ─── */
 .aurora-text-gradient {
 	background: linear-gradient(135deg, var(--text-1) 20%, var(--accent-purple) 60%, var(--accent-cyan) 100%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
+/* ─── Gradient Button ─── */
 .aurora-gradient-btn {
 	background: linear-gradient(135deg, #9b5cff 0%, #32d9ff 100%);
 	color: #ffffff;
@@ -157,14 +164,45 @@
 	box-shadow: 0 0 20px rgba(155, 92, 255, 0.5), 0 0 40px rgba(50, 217, 255, 0.3);
 }
 
+/* ─── Theme Surface & Player ─── */
 .theme-surface {
 	background-color: var(--surface-0);
 	color: var(--text-1);
 }
-
 .theme-player {
 	background: var(--player-bg);
 	color: var(--text-1);
+}
+
+/* ─── Hide scrollbar utility ─── */
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+.no-scrollbar {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+/* ─── Shimmer / Skeleton ─── */
+@keyframes shimmer {
+	0% { background-position: -400px 0; }
+	100% { background-position: 400px 0; }
+}
+.skeleton-shimmer {
+	background: linear-gradient(
+		90deg,
+		rgba(155, 92, 255, 0.05) 0%,
+		rgba(50, 217, 255, 0.1) 50%,
+		rgba(155, 92, 255, 0.05) 100%
+	);
+	background-size: 800px 100%;
+	animation: shimmer 1.6s ease-in-out infinite;
+}
+
+/* ─── Waveform idle animation ─── */
+@keyframes waveform-idle {
+	0%, 100% { transform: scaleY(0.4); }
+	50% { transform: scaleY(1); }
 }
 
 /* ─── Light theme remaps for hardcoded dark-UI utilities ─── */

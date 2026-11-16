@@ -62,9 +62,9 @@ const HomePage = () => {
 					{/* Personalized Greeting Header */}
 					<div className='mb-7 flex flex-col sm:flex-row sm:items-end justify-between gap-3'>
 						<div>
-							<div className='inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--accent-cyan)] uppercase tracking-wider mb-1'>
+							<div className='inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--accent-cyan)] uppercase tracking-wider mb-1.5'>
 								<Sparkles className='size-3.5 text-[var(--accent-cyan)]' />
-								<span>Aurora Sound Matrix</span>
+								<span>Jukebox · Your Personal Sound Universe</span>
 							</div>
 							<h1 className='text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[var(--text-1)]'>
 								{greeting}
@@ -74,10 +74,16 @@ const HomePage = () => {
 									</span>
 								)}
 							</h1>
+							<p className='text-xs text-[var(--text-3)] mt-1.5 font-medium'>
+								Ready to discover something extraordinary today?
+							</p>
 						</div>
 
-						<div className='text-xs text-[var(--text-3)] font-medium hidden sm:block'>
-							✨ 320kbps High-Definition Spatial Sound
+						<div className='flex items-center gap-2 text-xs text-[var(--text-3)] font-medium hidden sm:flex'>
+							<div className='flex items-center gap-1.5 px-3 py-1.5 rounded-full glass-panel border border-[#9B5CFF]/20'>
+								<span className='size-1.5 rounded-full bg-[#32D9FF] animate-pulse' />
+								<span>✨ 320kbps Lossless Audio</span>
+							</div>
 						</div>
 					</div>
 
@@ -85,12 +91,19 @@ const HomePage = () => {
 					<HeroBanner />
 
 					{/* 2. Recently Played / Quick Mix Section */}
-					<div className='mb-6'>
-						<div className='flex items-center gap-2 mb-4'>
-							<Clock className='size-4 text-[var(--accent-purple)]' />
-							<h2 className='text-lg sm:text-xl font-bold text-[var(--text-1)]'>
-								Recently Played & Quick Mix
-							</h2>
+					<div className='mb-8'>
+						<div className='flex items-center justify-between mb-4'>
+							<div className='flex items-center gap-2'>
+								<div className='p-1.5 rounded-lg bg-[color-mix(in_srgb,var(--accent-purple)_15%,transparent)] border border-[color-mix(in_srgb,var(--accent-purple)_30%,transparent)]'>
+									<Clock className='size-3.5 text-[var(--accent-purple)]' />
+								</div>
+								<h2 className='text-lg sm:text-xl font-bold text-[var(--text-1)]'>
+									Recently Played &amp; Quick Mix
+								</h2>
+							</div>
+							<button className='text-xs font-semibold text-[var(--accent-cyan)] hover:text-[var(--text-1)] transition-colors hidden sm:block'>
+								View All →
+							</button>
 						</div>
 						<FeaturedSection />
 					</div>
@@ -98,7 +111,7 @@ const HomePage = () => {
 					{/* 3. Made For You Section */}
 					<SectionGrid
 						title='Crafted For You'
-						subtitle='Algorithmically tuned to your cosmic frequency'
+						subtitle='Algorithmically tuned to your listening frequency'
 						songs={madeForYouSongs}
 						isLoading={isLoading}
 					/>
@@ -108,11 +121,14 @@ const HomePage = () => {
 
 					{/* 5. Trending Tracks Section */}
 					<SectionGrid
-						title='Trending Across Aurora'
-						subtitle='Most streamed tracks in this galactic quadrant'
+						title='Trending Now'
+						subtitle='Most streamed tracks across the cosmos right now'
 						songs={trendingSongs}
 						isLoading={isLoading}
 					/>
+
+					{/* Footer padding */}
+					<div className='h-4' />
 				</div>
 			</ScrollArea>
 		</main>
