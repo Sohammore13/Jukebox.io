@@ -12,6 +12,18 @@ export default {
 				md: "calc(var(--radius) - 2px)",
 				sm: "calc(var(--radius) - 4px)",
 			},
+			spacing: {
+				"13": "3.25rem",
+				"18": "4.5rem",
+				"4.5": "1.125rem",
+			},
+			scale: {
+				"102": "1.02",
+				"103": "1.03",
+				"105": "1.05",
+				"108": "1.08",
+				"110": "1.1",
+			},
 			colors: {
 				midnight: {
 					950: "#05070E",
@@ -73,6 +85,10 @@ export default {
 						opacity: "0.7",
 					},
 				},
+				"aurora-pulse": {
+					"0%, 100%": { opacity: "0.4", transform: "scale(1)" },
+					"50%": { opacity: "0.8", transform: "scale(1.05)" },
+				},
 				"equalizer-1": {
 					"0%, 100%": { height: "20%" },
 					"50%": { height: "95%" },
@@ -93,14 +109,30 @@ export default {
 					"0%, 100%": { opacity: "0.6" },
 					"50%": { opacity: "1" },
 				},
+				"slide-up": {
+					"0%": { opacity: "0", transform: "translateY(10px)" },
+					"100%": { opacity: "1", transform: "translateY(0)" },
+				},
+				"fade-in": {
+					"0%": { opacity: "0" },
+					"100%": { opacity: "1" },
+				},
+				shimmer: {
+					"0%": { backgroundPosition: "-400px 0" },
+					"100%": { backgroundPosition: "400px 0" },
+				},
 			},
 			animation: {
 				"aurora-flow": "aurora-flow 12s ease-in-out infinite",
+				"aurora-pulse": "aurora-pulse 6s ease-in-out infinite",
 				"equalizer-1": "equalizer-1 0.8s ease-in-out infinite",
 				"equalizer-2": "equalizer-2 0.7s ease-in-out infinite 0.15s",
 				"equalizer-3": "equalizer-3 0.9s ease-in-out infinite 0.3s",
 				"equalizer-4": "equalizer-4 0.65s ease-in-out infinite 0.1s",
 				glow: "glow 3s ease-in-out infinite",
+				"slide-up": "slide-up 0.3s ease-out",
+				"fade-in": "fade-in 0.3s ease-out",
+				shimmer: "shimmer 1.6s ease-in-out infinite",
 			},
 		},
 	},

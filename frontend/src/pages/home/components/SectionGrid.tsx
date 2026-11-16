@@ -28,11 +28,11 @@ const SectionGrid = ({ songs, title, subtitle, isLoading }: SectionGridProps) =>
 						<Sparkles className='size-4 text-[var(--accent-cyan)]' />
 					</h2>
 					{subtitle && (
-						<p className='text-xs text-[var(--text-3)] mt-0.5'>{subtitle}</p>
+						<p className='text-xs text-[var(--text-3)] mt-1'>{subtitle}</p>
 					)}
 				</div>
-				<button className='text-xs font-semibold text-[var(--accent-cyan)] hover:text-[var(--text-1)] hover:underline transition-colors'>
-					Explore All
+				<button className='text-xs font-semibold text-[var(--accent-cyan)] hover:text-[var(--text-1)] hover:underline underline-offset-4 transition-colors'>
+					Explore All →
 				</button>
 			</div>
 
@@ -46,8 +46,8 @@ const SectionGrid = ({ songs, title, subtitle, isLoading }: SectionGridProps) =>
 							key={song._id}
 							className={`p-3.5 rounded-2xl glass-panel border transition-all duration-300 group cursor-pointer relative flex flex-col ${
 								isCurrent
-									? "border-[#32D9FF]/50 bg-[#11162A]/90 shadow-[0_0_25px_rgba(50,217,255,0.2)]"
-									: "border-[#9B5CFF]/15 hover:border-[#9B5CFF]/40 hover:bg-[#18203B]/60 hover:shadow-[0_12px_30px_rgba(0,0,0,0.4)] hover:scale-[1.02]"
+									? "border-[#32D9FF]/50 bg-[#11162A]/90 shadow-[0_0_30px_rgba(50,217,255,0.2)]"
+									: "border-[#9B5CFF]/12 hover:border-[#9B5CFF]/40 hover:bg-[#18203B]/60 hover:shadow-[0_14px_32px_rgba(0,0,0,0.4)] hover:scale-[1.02]"
 							}`}
 						>
 							{/* Large Album Artwork */}
@@ -55,19 +55,25 @@ const SectionGrid = ({ songs, title, subtitle, isLoading }: SectionGridProps) =>
 								<img
 									src={song.imageUrl}
 									alt={song.title}
-									className='size-full object-cover transition-transform duration-700 group-hover:scale-108'
+									className='size-full object-cover transition-transform duration-700 group-hover:scale-110'
 								/>
-								<div className='absolute inset-0 bg-gradient-to-t from-[#080B16]/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity' />
+								{/* Dark gradient overlay */}
+								<div className='absolute inset-0 bg-gradient-to-t from-[#080B16]/75 via-transparent to-transparent opacity-70 group-hover:opacity-45 transition-opacity' />
 
 								{/* Animated equalizer if playing */}
 								{isCurrent && isPlaying && (
-									<div className='absolute top-2.5 left-2.5 px-2 py-1 rounded-md bg-[#080B16]/80 backdrop-blur-md border border-[#32D9FF]/30'>
+									<div className='absolute top-2.5 left-2.5 px-2 py-1 rounded-lg bg-[#080B16]/80 backdrop-blur-md border border-[#32D9FF]/30'>
 										<AnimatedEqualizer size='sm' isPlaying={isPlaying} />
 									</div>
 								)}
 
+								{/* Currently playing ring */}
+								{isCurrent && (
+									<div className='absolute inset-0 ring-2 ring-[#32D9FF]/50 rounded-xl' />
+								)}
+
 								{/* Floating Play Button */}
-								<div className='absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-y-0 translate-y-2'>
+								<div className='absolute bottom-2.5 right-2.5 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-y-0 translate-y-2'>
 									<PlayButton song={song} size='md' />
 								</div>
 							</div>
@@ -76,22 +82,22 @@ const SectionGrid = ({ songs, title, subtitle, isLoading }: SectionGridProps) =>
 							<div className='flex-1 flex flex-col justify-between'>
 								<div>
 									<h3
-										className={`font-bold text-sm truncate transition-colors ${
+										className={`font-bold text-sm truncate transition-colors mb-0.5 ${
 											isCurrent ? "text-[#32D9FF]" : "text-white group-hover:text-white"
 										}`}
 									>
 										{song.title}
 									</h3>
-									<p className='text-xs text-[#94A3B8] truncate mt-1'>
+									<p className='text-xs text-[#94A3B8] truncate'>
 										{song.artist}
 									</p>
 								</div>
 
-								<div className='flex items-center justify-between text-[11px] text-[#94A3B8] pt-2 mt-2 border-t border-white/5'>
-									<span className='uppercase font-semibold tracking-wider text-[10px] text-[#9B5CFF]'>
+								<div className='flex items-center justify-between text-[11px] text-[#94A3B8] pt-2 mt-2.5 border-t border-white/5'>
+									<span className='uppercase font-bold tracking-wider text-[9px] text-[#9B5CFF] px-1.5 py-0.5 rounded bg-[#9B5CFF]/10 border border-[#9B5CFF]/20'>
 										Spatial
 									</span>
-									<span>{formatDuration(song.duration)}</span>
+									<span className='font-mono'>{formatDuration(song.duration)}</span>
 								</div>
 							</div>
 						</div>
